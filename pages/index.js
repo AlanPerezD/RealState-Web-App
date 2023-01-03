@@ -6,7 +6,7 @@ import { Flex, Box, Text, Button } from '@chakra-ui/react';
 export default function Home() {
   return (
     <div>
-
+      Hello World
     </div>
   )
 }
