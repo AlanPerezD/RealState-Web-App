@@ -6,13 +6,12 @@ import { BsFilter } from 'react-icons/bs';
 
 import Property from '../components/Property';
 import SearchFilters from '../components/SearchFilters';
-import noresult from '../assets/images/noresult.svg';
-import { fetchApi, baseUrl } from '../utils/fetchApi';
+import { baseUrl, fetchApi } from '../utils/fetchApi';
+import noresult from '../assets/images/noresult.svg'
 
-const Search = ( { properties }) => {
+const Search = ({ properties }) => {
   const [searchFilters, setSearchFilters] = useState(false);
   const router = useRouter();
-
   return (
     <Box>
       <Flex
@@ -44,13 +43,11 @@ const Search = ( { properties }) => {
         </Flex>
       )}
     </Box>
-    
     )
   }
 
-export default Search;
 
-export async function getSeverSideProps({ query }) {
+export async function getServerSideProps({ query }) {
   const purpose = query.purpose || 'for-rent';
   const rentFrequency = query.rentFrequency || 'yearly';
   const minPrice = query.minPrice || '0';
@@ -70,3 +67,5 @@ export async function getSeverSideProps({ query }) {
     }
   }
 }
+
+export default Search;
